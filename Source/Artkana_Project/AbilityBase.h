@@ -43,4 +43,12 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void DoAbility();
 	virtual void DoAbility_Implementation();
+	
+	UFUNCTION(BlueprintCallable)
+	void ResumeTime()	{
+		if (TimeManager)
+		{
+			TimeManager->CustomTimeDilation = 1.0f;
+		}
+	}
 };
