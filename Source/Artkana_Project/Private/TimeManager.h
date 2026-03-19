@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Kismet/GameplayStatics.h"
 #include "TimeManager.generated.h"
 
 UCLASS()
@@ -18,6 +19,11 @@ public:
 	// Returns the singleton instance of TimeManager
 	static ATimeManager* GetInstance() { return Instance; }
 
+	// Lerps global time dilation toward TargetDilation using exponential decay/growth.
+	// DecayRate controls how fast it approaches: higher = faster convergence.
+	UFUNCTION(BlueprintCallable, Category = "Time")
+	void TimeLerp(float TargetDilation, float DecayRate);
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -30,4 +36,8 @@ public:
 
 private:
 	static ATimeManager* Instance;
+
+	bool   bIsLerping        = false;
+	float  LerpTargetDilation = 1.0f;
+	float  LerpDecayRate      = 5.0f;
 };
