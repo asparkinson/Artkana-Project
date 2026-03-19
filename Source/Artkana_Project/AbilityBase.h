@@ -3,32 +3,51 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
-#include "GameFramework/Character.h"
-#include "Kismet/GameplayStatics.h"
+#include "Components/ActorComponent.h"
+#include "InputAction.h"
 #include "Private/TimeManager.h"
+#include "Public/Mana.h"
 #include "AbilityBase.generated.h"
 
-UCLASS()
-class ARTKANA_PROJECT_API AAbilityBase : public AActor
+UCLASS(Blueprintable, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
+class ARTKANA_PROJECT_API UAbilityBase : public UActorComponent
 {
 	GENERATED_BODY()
 	
 public:	
-	// Sets default values for this actor's properties
-	AAbilityBase();
+	// Sets default values for this component's properties
+	UAbilityBase();
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 	UFUNCTION(BlueprintCallable)
-	static bool CheckMana();
+	bool CheckMana();
 
-	UPROPERTY()
-	ACharacter* Player;
+	// Set to true if this is the primary ability slot; only then will IA_Ability1 trigger it
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ability")
+	bool bIsPrimary = false;
 
-	UPROPERTY()
+	// Assign IA_Ability1 here in the Blueprint details panel
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* AbilityInputAction;
+
+	void OnAbility1Input(const FInputActionValue& Value);
+
+	// Assign IA_Ability2 here in the Blueprint details panel
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* AbilityInputAction2;
+
+	void OnAbility2Input(const FInputActionValue& Value);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ability")
+	float ManaCost = 0.0f;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Mana")
+	UMana* ManaComponent;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Time")
 	ATimeManager* TimeManager;
 
 	bool bHasActivated = false;
@@ -45,10 +64,8 @@ public:
 	virtual void DoAbility_Implementation();
 	
 	UFUNCTION(BlueprintCallable)
-	void ResumeTime()	{
-		if (TimeManager)
-		{
-			TimeManager->CustomTimeDilation = 1.0f;
-		}
-	}
+	void ResumeTime();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bIsSecondary;
 };

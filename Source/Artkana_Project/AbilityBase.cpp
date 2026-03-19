@@ -1,38 +1,54 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "AbilityBase.h"
-
 #include "Kismet/GameplayStatics.h"
+#include "EnhancedInputComponent.h"
+#include "InputActionValue.h"
 
-// Sets default values
-AAbilityBase::AAbilityBase()
+// Sets default values for this component's properties
+UAbilityBase::UAbilityBase()
 {
-	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-
+	PrimaryComponentTick.bCanEverTick = true;
 }
 
 // Called when the game starts or when spawned
-void AAbilityBase::BeginPlay()
+void UAbilityBase::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 	if (APlayerController* PC = UGameplayStatics::GetPlayerController(this, 0))
 	{
-		Player = Cast<ACharacter>(PC->GetPawn());
+		if (APawn* Pawn = PC->GetPawn())
+		{
+			ManaComponent = Pawn->FindComponentByClass<UMana>();
+		}
 	}
 
 	TimeManager = ATimeManager::GetInstance();
+
+	// Bind IA_Ability1 on the owning actor's input component
+	if (UEnhancedInputComponent* EIC = Cast<UEnhancedInputComponent>(GetOwner()->InputComponent))
+	{
+		if (AbilityInputAction)
+		{
+			EIC->BindAction(AbilityInputAction, ETriggerEvent::Triggered,
+				this, &UAbilityBase::OnAbility1Input);
+		}
+
+		if (AbilityInputAction2)
+		{
+			EIC->BindAction(AbilityInputAction2, ETriggerEvent::Triggered,
+				this, &UAbilityBase::OnAbility2Input);
+		}
+	}
 }
 
-bool AAbilityBase::CheckMana()
+bool UAbilityBase::CheckMana()
 {
-	return true;
-	//return Player->ManaCurrentVal >= ManaCost;
+	return ManaComponent && ManaComponent->ManaCurrVal >= ManaCost;
 }
 
-void AAbilityBase::ActivateAbility()
+void UAbilityBase::ActivateAbility()
 {
 	if (!CheckMana() || bHasActivated)
 	{
@@ -41,18 +57,38 @@ void AAbilityBase::ActivateAbility()
 
 	bHasActivated = true;
 
-	//Player->ManaCurrentVal -= ManaCost;
+	ManaComponent->RemoveMana(ManaCost);
 
 	DoAbility_Implementation();
 }
 
-void AAbilityBase::ResetAbility()
+void UAbilityBase::ResetAbility()
 {
 	bHasActivated = false;
 }
 
-void AAbilityBase::DoAbility_Implementation()
+void UAbilityBase::OnAbility1Input(const FInputActionValue& Value)
+{
+	if (bIsPrimary)
+	{
+		ActivateAbility();
+	}
+}
+
+void UAbilityBase::OnAbility2Input(const FInputActionValue& Value)
+{
+	if (bIsSecondary)
+	{
+		ActivateAbility();
+	}
+}
+
+void UAbilityBase::DoAbility_Implementation()
 {
 	// This function is meant to be overridden in Blueprints
 }
 
+void UAbilityBase::ResumeTime()
+{
+	TimeManager->TimeLerp(1.0f, 5.0f); // Smoothly return to normal time dilation
+}
