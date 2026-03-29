@@ -4,8 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "InputAction.h"
 #include "Private/TimeManager.h"
+#include "Private/AbilityAdapter.h"
 #include "Public/Mana.h"
 #include "AbilityBase.generated.h"
 
@@ -25,21 +25,13 @@ protected:
 	UFUNCTION(BlueprintCallable)
 	bool CheckMana();
 
-	// Set to true if this is the primary ability slot; only then will IA_Ability1 trigger it
+	/** Set to true if this ability should respond to IA_Ability1 via AbilityAdapter. */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ability")
 	bool bIsPrimary = false;
 
-	// Assign IA_Ability1 here in the Blueprint details panel
-	UPROPERTY(EditAnywhere, Category = "Input")
-	UInputAction* AbilityInputAction;
-
-	void OnAbility1Input(const FInputActionValue& Value);
-
-	// Assign IA_Ability2 here in the Blueprint details panel
-	UPROPERTY(EditAnywhere, Category = "Input")
-	UInputAction* AbilityInputAction2;
-
-	void OnAbility2Input(const FInputActionValue& Value);
+	/** Set to true if this ability should respond to IA_Ability2 via AbilityAdapter. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ability")
+	bool bIsSecondary = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Ability")
 	float ManaCost = 0.0f;
@@ -51,6 +43,14 @@ protected:
 	ATimeManager* TimeManager;
 
 	bool bHasActivated = false;
+
+	/** Called by AbilityAdapter's OnAbility1Triggered delegate. */
+	UFUNCTION()
+	void HandleAbility1();
+
+	/** Called by AbilityAdapter's OnAbility2Triggered delegate. */
+	UFUNCTION()
+	void HandleAbility2();
 
 public:
 	UFUNCTION(BlueprintCallable)
@@ -65,7 +65,4 @@ public:
 	
 	UFUNCTION(BlueprintCallable)
 	void ResumeTime();
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool bIsSecondary;
 };
