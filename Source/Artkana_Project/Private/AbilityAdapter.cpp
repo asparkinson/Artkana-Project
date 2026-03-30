@@ -35,5 +35,14 @@ void UAbilityAdapter::TriggerAbility1()
 
 void UAbilityAdapter::TriggerAbility2()
 {
+	UE_LOG(LogTemp, Warning, TEXT("[AbilityAdapter] TriggerAbility2 called on %s | %d listeners"),
+		*GetOwner()->GetName(), OnAbility2Triggered.GetAllObjects().Num());
+
+	if (GEngine)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 3.f, FColor::Yellow,
+			FString::Printf(TEXT("[AbilityAdapter] TriggerAbility2 -> %d listeners"), OnAbility2Triggered.GetAllObjects().Num()));
+	}
+
 	OnAbility2Triggered.Broadcast();
 }
