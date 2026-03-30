@@ -25,6 +25,7 @@ void UMana::BeginPlay()
 
 void UMana::AddToMana (float Amount)
 {
+	float PrevMana = ManaCurrVal;
 	if (ManaCurrVal + Amount >= ManaMaxVal)
 	{
 		ManaCurrVal = ManaMaxVal;
@@ -34,10 +35,14 @@ void UMana::AddToMana (float Amount)
 		ManaCurrVal += Amount;
 	}
 	bIsManaEmpty = false;
+
+	UE_LOG(LogTemp, Log, TEXT("[Mana] %s | AddToMana: +%.1f | %.1f -> %.1f / %.1f"),
+		*GetOwner()->GetName(), Amount, PrevMana, ManaCurrVal, ManaMaxVal);
 }
 
 void UMana::RemoveMana(float Amount)
 {
+	float PrevMana = ManaCurrVal;
 	if (ManaCurrVal - Amount <= 0)
 	{
 		ManaCurrVal = 0;
@@ -47,6 +52,10 @@ void UMana::RemoveMana(float Amount)
 	{
 		ManaCurrVal -= Amount;
 	}
+
+	UE_LOG(LogTemp, Log, TEXT("[Mana] %s | RemoveMana: -%.1f | %.1f -> %.1f / %.1f%s"),
+		*GetOwner()->GetName(), Amount, PrevMana, ManaCurrVal, ManaMaxVal,
+		bIsManaEmpty ? TEXT(" [MANA EMPTY]") : TEXT(""));
 }
 
 

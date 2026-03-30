@@ -68,7 +68,8 @@ void UAbilityBase::ActivateAbility()
 
 	ManaComponent->RemoveMana(ManaCost);
 
-	DoAbility_Implementation();
+	UE_LOG(LogTemp, Warning, TEXT("[%s] ActivateAbility -> DoAbility()"), *GetClass()->GetName());
+	DoAbility();
 }
 
 void UAbilityBase::ResetAbility()
@@ -100,9 +101,23 @@ void UAbilityBase::HandleAbility1()
 
 void UAbilityBase::HandleAbility2()
 {
+	UE_LOG(LogTemp, Warning, TEXT("[%s] HandleAbility2 | bIsSecondary=%s"),
+		*GetClass()->GetName(),
+		bIsSecondary ? TEXT("true") : TEXT("false"));
+
 	if (bIsSecondary)
 	{
+		UE_LOG(LogTemp, Warning, TEXT("[%s] HandleAbility2 -> ActivateAbility | Mana=%.1f ManaCost=%.1f bHasActivated=%s"),
+			*GetClass()->GetName(),
+			ManaComponent ? ManaComponent->ManaCurrVal : -1.f,
+			ManaCost,
+			bHasActivated ? TEXT("true") : TEXT("false"));
+
 		ActivateAbility();
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("[%s] HandleAbility2 skipped — bIsSecondary is false"), *GetClass()->GetName());
 	}
 }
 
