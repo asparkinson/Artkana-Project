@@ -315,8 +315,15 @@ def main():
             
             subprocess.run(["git", "branch", "-d", current_branch], check=True)
             print(f"✓ Local branch '{current_branch}' deleted.")
-            subprocess.run(["git", "push", "origin", "--delete", current_branch], check=True)
-            print(f"✓ Remote branch '{current_branch}' deleted.")
+            
+            # Only delete remote branch if it was published to origin
+            remote_check = subprocess.run(
+                ["git", "ls-remote", "--heads", "origin", current_branch],
+                capture_output=True, text=True
+            )
+            if remote_check.stdout.strip():
+                subprocess.run(["git", "push", "origin", "--delete", current_branch], check=True)
+                print(f"✓ Remote branch '{current_branch}' deleted.")
             
         except subprocess.CalledProcessError as e:
             print(f"\n❌ Error during merge: {e}")
