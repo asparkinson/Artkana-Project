@@ -10,6 +10,11 @@
       "username": "Gavin Schmidt",
       "role": "admin",
       "registered_at": "2026-04-01T18:31:39Z"
+    },
+    {
+      "username": "Wesley Yates",
+      "role": "contributor",
+      "registered_at": "2026-04-03T05:04:42Z"
     }
   ]
 }
