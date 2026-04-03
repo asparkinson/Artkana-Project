@@ -21,5 +21,10 @@
       "role": "contributor",
       "registered_at": "2026-04-03T15:41:32Z"
     }
+  ],
+  "applied_migrations": [
+    "v0.1.5-M1-gitignore",
+    "v0.1.5-M2-unignore-tracked",
+    "v0.1.5-M3-remove-cached"
   ]
 }
