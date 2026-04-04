@@ -37,6 +37,17 @@
       "change_timestamps": [],
       "active_time_seconds": 87,
       "total_time_seconds": 87
+    },
+    {
+      "username": "Gavin Schmidt",
+      "clock_in": "2026-04-04T05:31:28Z",
+      "clock_out": "2026-04-04T05:42:01Z",
+      "change_timestamps": [
+        "2026-04-04T05:31:33Z",
+        "2026-04-04T05:41:11Z"
+      ],
+      "active_time_seconds": 578,
+      "total_time_seconds": 633
     }
   ]
 }
