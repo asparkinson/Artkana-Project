@@ -25,6 +25,9 @@
   "applied_migrations": [
     "v0.1.5-M1-gitignore",
     "v0.1.5-M2-unignore-tracked",
-    "v0.1.5-M3-remove-cached"
+    "v0.1.5-M3-remove-cached",
+    "v0.1.6-M1-uvc-logs",
+    "v0.2.1-M1-monitor-hidden",
+    "v0.2.2-M1-github-releases"
   ]
 }
