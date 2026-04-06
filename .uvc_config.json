@@ -30,6 +30,11 @@
       "username": "Andrew Parkinson",
       "role": "contributor",
       "registered_at": "2026-04-06T12:57:59Z"
+    },
+    {
+      "username": "David Diaz",
+      "role": "contributor",
+      "registered_at": "2026-04-06T13:01:59Z"
     }
   ],
   "applied_migrations": [
