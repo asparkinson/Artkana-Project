@@ -166,6 +166,17 @@
       ],
       "active_time_seconds": 814,
       "total_time_seconds": 867
+    },
+    {
+      "username": "Bryan Gonzalez",
+      "clock_in": "2026-04-13T18:34:49Z",
+      "clock_out": "2026-04-13T18:37:25Z",
+      "change_timestamps": [
+        "2026-04-13T18:34:50Z",
+        "2026-04-13T18:36:51Z"
+      ],
+      "active_time_seconds": 121,
+      "total_time_seconds": 156
     }
   ]
 }
