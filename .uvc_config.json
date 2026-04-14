@@ -3,7 +3,8 @@
   "project_name": "Artkana_Project",
   "created_at": "2026-04-01T18:31:39Z",
   "admin_users": [
-    "Gavin Schmidt"
+    "Gavin Schmidt",
+    "Dylan/Nyx"
   ],
   "users": [
     {
@@ -28,7 +29,7 @@
     },
     {
       "username": "Dylan/Nyx",
-      "role": "contributor",
+      "role": "admin",
       "registered_at": "2026-04-09T06:13:16Z"
     },
     {
