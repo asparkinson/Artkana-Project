@@ -66,5 +66,20 @@
     "v0.2.1-M1-monitor-hidden",
     "v0.2.2-M1-github-releases",
     "v0.2.4-M1-bugfixes"
+  ],
+  "build_order": [
+    {
+      "type": "generate_vs",
+      "label": "Generate VS Solution"
+    },
+    {
+      "type": "build",
+      "label": "Build Project"
+    },
+    {
+      "type": "terminal",
+      "label": "Terminal Command",
+      "command": ""
+    }
   ]
 }
