@@ -208,6 +208,17 @@
       ],
       "active_time_seconds": 1565,
       "total_time_seconds": 3383
+    },
+    {
+      "username": "ddiaz24",
+      "clock_in": "2026-04-15T21:27:25Z",
+      "clock_out": "2026-04-15T21:28:20Z",
+      "change_timestamps": [
+        "2026-04-15T21:27:25Z"
+      ],
+      "active_time_seconds": 55,
+      "total_time_seconds": 55,
+      "auto_saved": true
     }
   ]
 }
