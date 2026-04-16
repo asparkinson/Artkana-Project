@@ -1,6 +1,4 @@
 {
   "disable_file_watcher": false,
-  "ssh_key_path": "C:/Users/gavin/.ssh/id_ed25519",
-  "github_token": "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",
-  "github_username": "gavinschmidt47"
+  "ssh_key_path": "C:/Users/gavin/.ssh/id_ed25519"
 }
