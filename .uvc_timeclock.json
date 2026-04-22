@@ -219,6 +219,39 @@
       "active_time_seconds": 55,
       "total_time_seconds": 55,
       "auto_saved": true
+    },
+    {
+      "username": "Wesley Yates",
+      "clock_in": "2026-04-18T03:34:03Z",
+      "clock_out": "2026-04-18T03:43:10Z",
+      "change_timestamps": [
+        "2026-04-18T03:34:04Z",
+        "2026-04-18T03:42:09Z"
+      ],
+      "active_time_seconds": 485,
+      "total_time_seconds": 547
+    },
+    {
+      "username": "meilanikidd",
+      "clock_in": "2026-04-22T02:27:28Z",
+      "clock_out": "2026-04-22T02:37:38Z",
+      "change_timestamps": [
+        "2026-04-22T02:27:30Z",
+        "2026-04-22T02:37:32Z"
+      ],
+      "active_time_seconds": 602,
+      "total_time_seconds": 610
+    },
+    {
+      "username": "meilanikidd",
+      "clock_in": "2026-04-22T02:40:55Z",
+      "clock_out": "2026-04-22T02:55:47Z",
+      "change_timestamps": [
+        "2026-04-22T02:40:57Z",
+        "2026-04-22T02:55:31Z"
+      ],
+      "active_time_seconds": 874,
+      "total_time_seconds": 892
     }
   ]
 }

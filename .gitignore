@@ -21,3 +21,5 @@ Saved
 .uvc_monitor_data.json
 # .uvc_config.json, .uvc_timeclock.json, and .uvc_logs/ are intentionally tracked.
 # End UnrealVersionControl
+*.png
+*.png
