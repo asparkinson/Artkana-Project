@@ -312,6 +312,19 @@
       "active_time_seconds": 3854,
       "total_time_seconds": 5656,
       "auto_saved": true
+    },
+    {
+      "username": "Sean Sieben",
+      "clock_in": "2026-04-24T00:39:31Z",
+      "clock_out": "2026-04-24T00:49:21Z",
+      "change_timestamps": [
+        "2026-04-24T00:39:31Z",
+        "2026-04-24T00:40:31Z",
+        "2026-04-24T00:41:01Z",
+        "2026-04-24T00:49:02Z"
+      ],
+      "active_time_seconds": 90,
+      "total_time_seconds": 591
     }
   ]
 }
