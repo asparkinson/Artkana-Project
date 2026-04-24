@@ -352,6 +352,20 @@
       ],
       "active_time_seconds": 1447,
       "total_time_seconds": 6330
+    },
+    {
+      "username": "meilanikidd",
+      "clock_in": "2026-04-24T19:43:11Z",
+      "clock_out": "2026-04-24T20:02:56Z",
+      "change_timestamps": [
+        "2026-04-24T19:43:11Z",
+        "2026-04-24T19:52:16Z",
+        "2026-04-24T19:55:17Z",
+        "2026-04-24T19:57:47Z",
+        "2026-04-24T20:00:18Z"
+      ],
+      "active_time_seconds": 482,
+      "total_time_seconds": 1185
     }
   ]
 }
