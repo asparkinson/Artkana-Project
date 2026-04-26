@@ -415,6 +415,22 @@
       "active_time_seconds": 1747,
       "total_time_seconds": 2177,
       "auto_saved": true
+    },
+    {
+      "username": "Wesley Yates",
+      "clock_in": "2026-04-26T19:42:18Z",
+      "clock_out": "2026-04-26T21:28:18Z",
+      "change_timestamps": [
+        "2026-04-26T19:42:18Z",
+        "2026-04-26T19:54:21Z",
+        "2026-04-26T20:07:53Z",
+        "2026-04-26T20:17:55Z",
+        "2026-04-26T21:24:37Z",
+        "2026-04-26T21:27:37Z",
+        "2026-04-26T21:28:07Z"
+      ],
+      "active_time_seconds": 2347,
+      "total_time_seconds": 6360
     }
   ]
 }
