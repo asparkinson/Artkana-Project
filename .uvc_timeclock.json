@@ -442,6 +442,22 @@
       ],
       "active_time_seconds": 1265,
       "total_time_seconds": 1281
+    },
+    {
+      "username": "David Diaz",
+      "clock_in": "2026-04-27T13:09:39Z",
+      "clock_out": "2026-04-27T14:14:15Z",
+      "change_timestamps": [
+        "2026-04-27T13:09:39Z",
+        "2026-04-27T13:10:39Z",
+        "2026-04-27T13:12:40Z",
+        "2026-04-27T13:37:14Z",
+        "2026-04-27T13:53:47Z",
+        "2026-04-27T13:59:48Z",
+        "2026-04-27T14:13:21Z"
+      ],
+      "active_time_seconds": 2348,
+      "total_time_seconds": 3876
     }
   ]
 }
