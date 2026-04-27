@@ -56,6 +56,11 @@
       "username": "Bryan Gonzalez",
       "role": "contributor",
       "registered_at": "2026-04-13T18:08:43Z"
+    },
+    {
+      "username": "David Diaz",
+      "role": "contributor",
+      "registered_at": "2026-04-27T13:07:16Z"
     }
   ],
   "applied_migrations": [
