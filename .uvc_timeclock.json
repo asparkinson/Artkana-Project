@@ -522,6 +522,17 @@
       "active_time_seconds": 31,
       "total_time_seconds": 299,
       "auto_saved": true
+    },
+    {
+      "username": "meilanikidd",
+      "clock_in": "2026-04-28T20:56:47Z",
+      "clock_out": "2026-04-28T20:57:07Z",
+      "change_timestamps": [
+        "2026-04-28T20:56:47Z"
+      ],
+      "active_time_seconds": 20,
+      "total_time_seconds": 20,
+      "auto_saved": true
     }
   ]
 }
